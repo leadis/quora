@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quora Space | Explore Knowledge Communities</title>
+    <!-- Google Fonts & Font Awesome for Icons (clean, Quora-like style) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f2f2f2;
+            color: #1e1e1e;
+            line-height: 1.5;
+        }
+
+        /* Quora-inspired container with subtle max-width */
+        .app-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f2f2f2;
+            box-shadow: 0 0 20px rgba(0,0,0,0.02);
+        }
+
+        /* Header area: Quora space with logo/title image treatment */
+        .space-header {
+            background: white;
+            border-bottom: 1px solid #e2e2e2;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 12px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Custom Quora-like logo with "Q" icon + wordmark */
+        .quora-icon {
+            background-color: #b92b27;
+            width: 38px;
+            height: 38px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 24px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #b92b27 0%, #a51e1a 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .space-badge {
+            background: #f0f2f5;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #3b3f45;
+            margin-left: 8px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .header-actions i {
+            font-size: 1.4rem;
+            color: #636466;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .header-actions i:hover {
+            color: #b92b27;
+        }
+
+        .ask-btn {
+            background: #b92b27;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .ask-btn:hover {
+            background: #9e211e;
+        }
+
+        /* main 2-col layout (Quora style) */
+        .main-grid {
+            display: flex;
+            gap: 28px;
+            padding: 24px 24px 32px 24px;
+            flex-wrap: wrap;
+        }
+
+        /* left sidebar: space info + topics */
+        .left-sidebar {
+            flex: 1.2;
+            min-width: 200px;
+        }
+
+        .space-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            border: 1px solid #eaecef;
+            margin-bottom: 20px;
+        }
+
+        .space-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #6a6f77;
+        }
+
+        .topic-list {
+            list-style: none;
+            margin-top: 14px;
+        }
+
+        .topic-list li {
+            display: inline-block;
+            background: #f0f2f5;
+            padding: 5px 12px;
+            border-radius: 18px;
+            font-size: 0.8rem;
+            margin: 0 6px 8px 0;
+            color: #2c2e31;
+            cursor: pointer;
+        }
+
+        .join-button {
+            background: transparent;
+            border: 1px solid #b92b27;
+            color: #b92b27;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .join-button:hover {
+            background: #fff1f0;
+        }
+
+        /* main feed: questions & answers style (Quora space vibe) */
+        .feed {
+            flex: 3;
+            min-width: 280px;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #eaecef;
+            transition: all 0.2s;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            background: #d9dce1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #4a4e57;
+            background: #eef2f6;
+        }
+
+        .user-info {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .user-handle {
+            color: #6a6f77;
+            font-size: 0.75rem;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 10px 0 8px 0;
+            color: #1a1b1e;
+            cursor: pointer;
+        }
+
+        .question-stats {
+            display: flex;
+            gap: 20px;
+            margin: 14px 0 10px;
+            font-size: 0.8rem;
+            color: #6a6f77;
+        }
+
+        .action-icons {
+            display: flex;
+            gap: 24px;
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px solid #eff0f2;
+        }
+
+        .action-icons span {
+            font-size: 0.85rem;
+            color: #6f747c;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-icons span:hover {
+            color: #b92b27;
+        }
+
+        .answer-preview {
+            background: #fafbfc;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            border-left: 3px solid #b92b27;
+        }
+
+        /* "Add answer" inline */
+        .add-answer {
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .add-answer input {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            background: white;
+            font-size: 0.85rem;
+        }
+        .add-answer button {
+            background: none;
+            border: none;
+            color: #b92b27;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Right sidebar trending / space recommendations */
+        .right-sidebar {
+            flex: 1.1;
+            min-width: 210px;
+        }
+
+        .trending-card, .footer-note {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid #eaecef;
+            margin-bottom: 20px;
+        }
+
+        .trending-card h4, .space-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .trend-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+            align-items: baseline;
+        }
+
+        .trend-num {
+            font-weight: 700;
+            color: #b0b3b8;
+        }
+
+        .footer-note {
+            font-size: 0.75rem;
+            text-align: center;
+            color: #7f8289;
+        }
+
+        @media (max-width: 750px) {
+            .main-grid {
+                flex-direction: column;
+            }
+            .space-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        button, .action-icons span, .join-button, .ask-btn {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <!-- Header with Quora logo / title (mage de Quora en logo ou titre) -->
+    <div class="space-header">
+        <div class="logo-area">
+            <div class="quora-icon">Q</div>
+            <div class="logo-text">Quora Space</div>
+            <div class="space-badge">✦ Official Space</div>
+        </div>
+        <div class="header-actions">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+            <button class="ask-btn" id="globalAskBtn"><i class="fas fa-pen-alt"></i> Ask Question</button>
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <!-- LEFT SIDEBAR: Space details & topics -->
+        <aside class="left-sidebar">
+            <div class="space-card">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div class="quora-icon" style="width: 48px; height: 48px; font-size: 28px;">Q</div>
+                    <div>
+                        <h3 style="font-size: 1.2rem;">Quora Space</h3>
+                        <p style="font-size: 0.75rem; color:#6f747c;">Public knowledge hub</p>
+                    </div>
+                </div>
+                <p style="margin: 14px 0 6px; font-size: 0.9rem;">A space to ask, share, and learn from experts and enthusiasts. Join the conversation!</p>
+                <div class="space-stats">
+                    <div class="stat"><div class="stat-number">2.3M</div><div class="stat-label">Members</div></div>
+                    <div class="stat"><div class="stat-number">18.4K</div><div class="stat-label">Questions</div></div>
+                    <div class="stat"><div class="stat-number">1.2K</div><div class="stat-label">Answers today</div></div>
+                </div>
+                <button class="join-button" id="joinSpaceBtn"><i class="far fa-star"></i> Join Space</button>
+                <h4 style="margin: 18px 0 8px 0; font-size: 0.9rem;">Popular topics</h4>
+                <ul class="topic-list">
+                    <li>Technology</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Startups</li>
+                    <li>Philosophy</li>
+                    <li>Science</li>
+                    <li>Productivity</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- MAIN FEED: Quora-like questions and answers -->
+        <main class="feed" id="feedContainer">
+            <!-- Questions will be dynamically injected here, but also include static content for initial rich look -->
+        </main>
+
+        <!-- RIGHT SIDEBAR: trending & extra -->
+        <aside class="right-sidebar">
+            <div class="trending-card">
+                <h4><i class="fas fa-chart-line"></i> Trending in Space</h4>
+                <div class="trend-item"><span class="trend-num">1.</span> <span>What's the future of LLMs beyond 2025?</span></div>
+                <div class="trend-item"><span class="trend-num">2.</span> <span>How to stay productive while working remotely?</span></div>
+                <div class="trend-item"><span class="trend-num">3.</span> <span>Best books to understand human psychology</span></div>
+                <div class="trend-item"><span class="trend-num">4.</span> <span>Is AI going to replace software engineers?</span></div>
+            </div>
+            <div class="trending-card">
+                <h4><i class="fas fa-users"></i> Top contributors</h4>
+                <div style="font-size:0.85rem; margin-bottom: 8px;">👩‍💻 Dr. Sarah Chen · 2.1k answers</div>
+                <div style="font-size:0.85rem; margin-bottom: 8px;">🧠 Michael Torres · AI Researcher</div>
+                <div style="font-size:0.85rem;">📖 Emily Watson · Philosophy writer</div>
+            </div>
+            <div class="footer-note">
+                <i class="far fa-question-circle"></i> Quora Space — where knowledge meets community
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+    // --- Mock Data for Quora Space Feed ---
+    let questionsData = [
+        {
+            id: 1,
+            author: "Alex Morgan",
+            handle: "@alex_m",
+            avatarInitials: "AM",
+            title: "What are the most underrated skills that can boost your career in 2025?",
+            contentPreview: "I've been thinking about emotional intelligence, adaptability, and storytelling. What do experts think?",
+            answers: [
+                { user: "Priya K.", text: "Storytelling + data literacy is the new superpower. It helps you influence decisions." },
+                { user: "James L.", text: "Active listening and asking great questions often open more doors than technical skills alone." }
+            ],
+            answerCount: 8,
+            upvotes: 124,
+            timestamp: "2 hours ago"
+        },
+        {
+            id: 2,
+            author: "Maya Rodriguez",
+            handle: "@maya_writes",
+            avatarInitials: "MR",
+            title: "How can I start learning AI without a technical background?",
+            contentPreview: "I come from a marketing background, but AI tools fascinate me. Any roadmap?",
+            answers: [
+                { user: "David Kim", text: "Start with Andrew Ng's courses, and use no-code AI platforms to build intuition." },
+                { user: "Linda Zhao", text: "Understanding prompt engineering and using GPT/Claude APIs is a great entry point." }
+            ],
+            answerCount: 15,
+            upvotes: 342,
+            timestamp: "5 hours ago"
+        },
+        {
+            id: 3,
+            author: "Quora Space Admin",
+            handle: "@quoraspace",
+            avatarInitials: "QS",
+            title: "What's one habit that improved your mental clarity drastically?",
+            contentPreview: "Many successful people swear by morning routines or digital minimalism.",
+            answers: [
+                { user: "Nina S.", text: "Daily meditation and limiting social media to 30 mins changed my focus." },
+                { user: "Carlos V.", text: "Journaling every morning to prioritize tasks and dump anxiety." }
+            ],
+            answerCount: 32,
+            upvotes: 567,
+            timestamp: "Yesterday"
+        },
+        {
+            id: 4,
+            author: "Dr. Ethan Wu",
+            handle: "@ethanw_phd",
+            avatarInitials: "EW",
+            title: "What are the ethical boundaries when using generative AI in creative fields?",
+            contentPreview: "Should artists disclose AI assistance? Let's discuss.",
+            answers: [
+                { user: "Rebecca A.", text: "Transparency is key. If AI contributed heavily, credit it to maintain trust." },
+                { user: "Mark T.", text: "It's a tool, just like Photoshop. But we need new copyright frameworks." }
+            ],
+            answerCount: 23,
+            upvotes: 198,
+            timestamp: "1 day ago"
+        }
+    ];
+
+    // Helper: render the entire feed based on questionsData
+    function renderFeed() {
+        const feedContainer = document.getElementById('feedContainer');
+        if (!feedContainer) return;
+        
+        feedContainer.innerHTML = '';
+        questionsData.forEach(question => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.dataset.id = question.id;
+            
+            // Header section with avatar and user info
+            const headerHtml = `
+                <div class="question-header">
+                    <div class="avatar">${question.avatarInitials}</div>
+                    <div class="user-info">
+                        <div>${escapeHtml(question.author)} <span class="user-handle">${escapeHtml(question.handle)}</span></div>
+                        <div style="font-size:0.7rem; color:#8f949e;">${escapeHtml(question.timestamp)}</div>
+                    </div>
+                </div>
+                <div class="question-title">${escapeHtml(question.title)}</div>
+                <div style="color:#3b3f45; margin-bottom: 8px;">${escapeHtml(question.contentPreview)}</div>
+                <div class="question-stats">
+                    <span><i class="fas fa-arrow-up"></i> ${question.upvotes} upvotes</span>
+                    <span><i class="fas fa-comment"></i> ${question.answerCount} answers</span>
+                </div>
+            `;
+            
+            // Answers preview section: show latest 2 answers
+            let answersHtml = '';
+            if (question.answers && question.answers.length > 0) {
+                answersHtml = `<div class="answer-preview"><i class="fas fa-reply-all" style="font-size:0.7rem; color:#b92b27;"></i> <strong>Top answers:</strong><br/>`;
+                question.answers.slice(0,2).forEach(ans => {
+                    answersHtml += `<div style="margin-top: 8px;"><span style="font-weight:500;">${escapeHtml(ans.user)}:</span> ${escapeHtml(ans.text)}</div>`;
+                });
+                if (question.answers.length > 2) {
+                    answersHtml += `<div style="margin-top:6px; font-size:0.75rem; color:#b92b27; cursor:pointer;" class="view-more-answers" data-id="${question.id}">View all ${question.answerCount} answers →</div>`;
+                }
+                answersHtml += `</div>`;
+            } else {
+                answersHtml = `<div class="answer-preview" style="color:#7c828b;">Be the first to answer this question ✍️</div>`;
+            }
+            
+            // Action icons + add answer inline
+            const actionsHtml = `
+                <div class="action-icons">
+                    <span class="upvote-action" data-id="${question.id}"><i class="far fa-arrow-up"></i> Upvote</span>
+                    <span class="answer-action" data-id="${question.id}"><i class="far fa-comment"></i> Answer</span>
+                    <span><i class="far fa-bookmark"></i> Save</span>
+                    <span><i class="fas fa-share-alt"></i> Share</span>
+                </div>
+                <div class="add-answer" id="answerInput-${question.id}" style="display:none;">
+                    <input type="text" placeholder="Write your answer..." id="newAnswerText-${question.id}">
+                    <button class="submit-answer-btn" data-id="${question.id}">Post</button>
+                </div>
+            `;
+            
+            card.innerHTML = headerHtml + answersHtml + actionsHtml;
+            feedContainer.appendChild(card);
+        });
+        
+        attachFeedEventListeners();
+    }
+    
+    function attachFeedEventListeners() {
+        // Upvote logic
+        document.querySelectorAll('.upvote-action').forEach(btn => {
+            btn.removeEventListener('click', handleUpvote);
+            btn.addEventListener('click', handleUpvote);
+        });
+        // Toggle answer input
+        document.querySelectorAll('.answer-action').forEach(btn => {
+            btn.removeEventListener('click', toggleAnswerInput);
+            btn.addEventListener('click', toggleAnswerInput);
+        });
+        // Submit new answer
+        document.querySelectorAll('.submit-answer-btn').forEach(btn => {
+            btn.removeEventListener('click', submitNewAnswer);
+            btn.addEventListener('click', submitNewAnswer);
+        });
+        // View more answers (mock alert but expands the answer list in a demo style)
+        document.querySelectorAll('.view-more-answers').forEach(el => {
+            el.removeEventListener('click', viewMoreAnswers);
+            el.addEventListener('click', viewMoreAnswers);
+        });
+    }
+    
+    function handleUpvote(e) {
+        const target = e.currentTarget;
+        const questionId = parseInt(target.dataset.id);
+        const question = questionsData.find(q => q.id === questionId);
+        if(question) {
+            question.upvotes += 1;
+            renderFeed();  // re-render to reflect new upvote count
+            showToast("Upvoted! (+1)");
+        }
+        e.stopPropagation();
+    }
+    
+    function toggleAnswerInput(e) {
+        const btn = e.currentTarget;
+        const questionId = parseInt(btn.dataset.id);
+        const inputDiv = document.getElementById(`answerInput-${questionId}`);
+        if (inputDiv) {
+            if (inputDiv.style.display === 'none' || !inputDiv.style.display) {
+                inputDiv.style.display = 'flex';
+            } else {
+                inputDiv.style.display = 'none';
+            }
+        }
+        e.stopPropagation();
+    }
+    
+    function submitNewAnswer(e) {
+        const btn = e.currentTarget;
+        const questionId = parseInt(btn.dataset.id);
+        const inputField = document.getElementById(`newAnswerText-${questionId}`);
+        const answerText = inputField.value.trim();
+        if(answerText === "") {
+            showToast("Please write something before answering.");
+            return;
+        }
+        const question = questionsData.find(q => q.id === questionId);
+        if(question) {
+            const newAnswerObj = { user: "You", text: answerText };
+            question.answers.unshift(newAnswerObj);  // add as latest answer
+            question.answerCount += 1;
+            // hide input field
+            const inputDiv = document.getElementById(`answerInput-${questionId}`);
+            if(inputDiv) inputDiv.style.display = 'none';
+            inputField.value = '';
+            renderFeed();
+            showToast("Your answer has been added to the space!");
+        }
+    }
+    
+    function viewMoreAnswers(e) {
+        const target = e.currentTarget;
+        const qId = parseInt(target.dataset.id);
+        const question = questionsData.find(q => q.id === qId);
+        if(question && question.answers.length) {
+            let answerList = "📌 Answers:\n";
+            question.answers.forEach((ans, idx) => {
+                answerList += `${idx+1}. ${ans.user}: ${ans.text}\n`;
+            });
+            alert(answerList + `\n\nTotal: ${question.answerCount} answers.`);
+        } else {
+            alert("No more answers available. Be the first to add!");
+        }
+    }
+    
+    // Helper: toast-like temporary notification (simple)
+    function showToast(msg) {
+        let toast = document.createElement('div');
+        toast.innerText = msg;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%)';
+        toast.style.backgroundColor = '#1e1e1e';
+        toast.style.color = 'white';
+        toast.style.padding = '10px 18px';
+        toast.style.borderRadius = '40px';
+        toast.style.fontSize = '0.85rem';
+        toast.style.zIndex = '9999';
+        toast.style.fontWeight = '500';
+        toast.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+        document.body.appendChild(toast);
+        setTimeout(() => { toast.remove(); }, 2500);
+    }
+    
+    // Join space button + global ask question
+    function setupGlobalActions() {
+        const joinBtn = document.getElementById('joinSpaceBtn');
+        if(joinBtn) {
+            joinBtn.addEventListener('click', () => {
+                showToast("🎉 You've joined Quora Space! Welcome to the community.");
+                joinBtn.innerText = "✓ Joined";
+                joinBtn.disabled = true;
+                joinBtn.style.opacity = '0.7';
+            });
+        }
+        
+        const askBtn = document.getElementById('globalAskBtn');
+        if(askBtn) {
+            askBtn.addEventListener('click', () => {
+                const newQuestionTitle = prompt("What's your question? (Add to Quora Space)");
+                if(newQuestionTitle && newQuestionTitle.trim() !== "") {
+                    const newId = Date.now();
+                    const newQuestion = {
+                        id: newId,
+                        author: "You",
+                        handle: "@curious_mind",
+                        avatarInitials: "YO",
+                        title: newQuestionTitle.trim(),
+                        contentPreview: "Awaiting answers from the community...",
+                        answers: [],
+                        answerCount: 0,
+                        upvotes: 0,
+                        timestamp: "just now"
+                    };
+                    questionsData.unshift(newQuestion);
+                    renderFeed();
+                    showToast("✨ Your question has been posted to Quora Space!");
+                } else {
+                    showToast("Question can't be empty.");
+                }
+            });
+        }
+    }
+    
+    // simple XSS escape
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+    
+    // initial rendering & extra polish
+    renderFeed();
+    setupGlobalActions();
+</script>
+</body>
+</html>
